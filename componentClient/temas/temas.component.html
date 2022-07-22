@@ -1,0 +1,36 @@
+<div class="px-3 mt-2 full-screen d-flex">
+  <div>
+    <button
+      type="button"
+      class="btn btn-lg float-start"
+      style="background: #f26522; color: white"
+      (click)="MenuTareas()"
+    >
+      <i class="fas fa-long-arrow-alt-left"></i> Areas
+    </button>
+  </div>  
+</div>
+  
+  <div class="container"> 
+    <span><h1 class="text-center" style="color: white;">Temas</h1></span>
+  </div>
+  
+  <div *ngFor="let temas of listaTemas">
+    <div class="container mt-1">
+      <div class="card " style="background:#f26522; border:#f26522;"[routerLink]="['/generarTicket', temas.id+'&'+temas.idarea+'&'+temas.title]" >
+        <ul class="list-group list-group-flush"  >
+          <li class="list-group-item">
+            <h1 class="text-center mt-3">{{ temas.title }}</h1>
+          </li>
+        </ul>
+      </div>
+    </div>  
+  </div>
+  
+  <div class="container mt-3">
+  <div class="d-grid gap-2">
+    <button class="btn btn-primary" style="background:#f26522; border:#f26522;" type="button" [routerLink]="['/generarTicket', 000+'&'+000]"> 
+      <h1 class="text-center mt-3" style="color:whitesmoke;">Ticket sin tema</h1>
+      </button>
+  </div>
+  </div>

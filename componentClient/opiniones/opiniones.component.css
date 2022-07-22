@@ -1,0 +1,38 @@
+form {
+    width: 100%;
+    text-align: left;
+    border-radius: 20px;
+    
+    background: #ffffff;
+}
+
+fieldset {
+    border: 1px solid #f26522;
+    border-radius: 20px;
+}
+
+legend {
+    color: #FFF;
+    background: #f26522;
+    font-size: 1.5em;
+    padding: 5px;
+    border-radius: 20px;
+}
+table {
+    width: 20%;
+    margin: 10px;
+ }
+ .opinion{
+   width: 200px;
+
+ }
+ input[type=button], input[type=submit]{
+    background-color: #f26522;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 5px 50px;
+    font-size: 20px;
+    margin: 4px 20px;
+    cursor: pointer;
+}

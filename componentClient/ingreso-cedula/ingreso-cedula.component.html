@@ -1,0 +1,34 @@
+<app-header></app-header>
+<body background="http://localhost/imagenes/iconos-cuadrado.png">
+<br>
+<form name="cedula">
+<br>
+<h2>Ingrese su cedula</h2>
+
+<input type="text" name="cedula" value={{valor}}  readonly onmousedown="return false;"/>
+<br>
+    <input type="button" (click)="capturar($event)" value="1">
+    <input type="button" (click)="capturar($event)" value="2">
+    <input type="button" (click)="capturar($event)" value="3">
+<br>
+    <input type="button" (click)="capturar($event)" value="4">
+    <input type="button" (click)="capturar($event)" value="5">
+    <input type="button" (click)="capturar($event)" value="6">
+<br>
+    <input type="button" (click)="capturar($event)" value="7">
+    <input type="button" (click)="capturar($event)" value="8">
+    <input type="button" (click)="capturar($event)" value="9">
+<br>
+    <input type="button" (click)="capturar($event)" value="0">
+    <input type="reset" value="Borrar">
+    <br> <br>
+</form>
+<br>
+<form action="acciones">
+    <br>
+    <input type="button" routerLink="/temasFav" (click)="saveData()" value="Continuar">
+    <input type="button" routerLink='/inicio' value="Cancelar">
+</form>
+<br>
+</body>
+<app-footer></app-footer>

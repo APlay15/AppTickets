@@ -1,0 +1,41 @@
+<section>
+    <h1 class="text-center">Permisos funcionarios</h1>
+    <div class="card" style="margin: 10px;">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Código</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Leer</th>
+              <th scope="col">Escribir</th>
+              <th scope="col">Actualizar</th>
+              <th scope="col">Borrar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let permiso of listaPermisos">
+              <th scope="row">{{ permiso.id }}</th>
+              <td>{{ permiso.codigo}}</td>
+              <td>{{ permiso.idUser}}</td>
+              <td><i [ngClass]="permiso.leer==1 ? 'fas fa-check-circle':'fas fa-times-circle'" [ngStyle]="{'color':permiso.leer==1? '#49D623':'#e51b29'}"></i></td>
+              <td><i [ngClass]="permiso.escribir==1 ? 'fas fa-check-circle':'fas fa-times-circle'" [ngStyle]="{'color':permiso.escribir==1? '#49D623':'#e51b29'}"></i></td>
+              <td><i [ngClass]="permiso.actualizar==1 ? 'fas fa-check-circle':'fas fa-times-circle'" [ngStyle]="{'color':permiso.actualizar==1? '#49D623':'#e51b29'}"></i></td>
+              <td><i [ngClass]="permiso.borrar==1 ? 'fas fa-check-circle':'fas fa-times-circle'" [ngStyle]="{'color':permiso.borrar==1? '#49D623':'#e51b29'}"></i></td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="d-flex justify-content-between p-2">
+            <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshCountries()">
+            </ngb-pagination>
+          
+            <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+              <option [ngValue]="2">2 items per page</option>
+              <option [ngValue]="4">4 items per page</option>
+              <option [ngValue]="6">6 items per page</option>
+            </select>
+          </div>
+    </div>
+</section>
+
+

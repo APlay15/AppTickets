@@ -1,0 +1,89 @@
+<div class="col-lg-12 ">
+    <div class="card card-secondary">
+    <div class="card-title card-header text-center">
+            <label for="propaForm">Propagandas</label>
+
+        </div>
+
+        <form #propaForm="ngForm" (ngSubmit)="addPropa(propaForm)">
+
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="tipo">Tipo de publicidad</label>
+                    <select class="form-control form-control-lg" 
+                    name="tipo" id=""
+                    #tipo="ngModel"
+                    [(ngModel)]='PROP.tipo'>
+                        <option value="">Seleccione</option>
+                        <option value="Video">Video</option>
+                        <option value="Imagen">Imagen</option>
+                        <option value="Telepronter">Telepronter</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="url">Inserte la publicidad</label>
+                    <input type="text" 
+                    class="form-control" 
+                    name="url" id="" 
+                    #url="ngModel"
+                    [(ngModel)]='PROP.url'
+                    placeholder="URL"
+                    *ngIf="PROP.tipo=='Video'"> 
+
+                    <textarea class="form-control"
+                    name="url" id="" 
+                    #url="ngModel"
+                    [(ngModel)]='PROP.url'
+                    cols="" rows="5"
+                    placeholder="Escriba aqui su telepronter"
+                    *ngIf="PROP.tipo=='Telepronter'"></textarea>
+
+                    <input type="file"
+                    class="form-control"
+                    name="url" id=""
+                    #url="ngModel"
+                    [(ngModel)]='PROP.url'
+                    placeholder="Seleccione una imagen"
+                    *ngIf="PROP.tipo=='Imagen'">
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label for="est">Activar:</label>
+                        <div class="card-body">
+                            <input type="checkbox" name="est" 
+                            data-bootstrap-switch  
+                            [(ngModel)]='PROP.est'                 
+                            [checked]='PROP.estb' (change)="onChangeck(PROP.estb)">
+                            
+                        </div>
+                </div>
+                
+           
+
+                <div class="col-6">
+                    <label for="taod">Tiempo en segundos:</label>
+                    <input type="number"
+                    name="taod"
+                    class="form-control"
+                    #taod="ngModel"
+                    [(ngModel)]='PROP.tiempo'
+                    [ngClass]="{'is-invalid':taod.errors && taod.touched}"
+                    required>
+                    <div [hidden]="!taod.errors?.required" class="invalid-feedback">
+                        Asigne un valor
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+            </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>

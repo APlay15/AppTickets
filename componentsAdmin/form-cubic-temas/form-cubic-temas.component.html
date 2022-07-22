@@ -1,0 +1,50 @@
+<div class="col-lg-12 ">
+  <div class="card card-secondary">
+  <div class="card-title card-header text-center">
+      <label for="arearForm">Cubículos Temas</label>
+    </div>
+
+    <form #cubicTemaForm="ngForm" (ngSubmit)="addCubicTema(cubicTemaForm)">
+        <div class="modal-body">
+        <div class="form-group">
+        <label for="cubiculo">Cubículo</label>
+        <select
+          class="form-control form-control-lg"
+          name="cubiculo"
+          id=""
+          #cubiculo="ngModel"
+          [(ngModel)]="cubicTema.cubiculo"
+        >
+          <option value="0">Seleccione</option>
+          <option *ngFor="let cubic of listaCubiculos" [value]="cubic.id">
+            {{ cubic.numCubic }}
+          </option>
+        </select>
+      </div>
+   
+        <div class="form-group">
+          <label for="tema">Tema perteneciente:</label>
+          <select
+            class="form-control form-control-lg"
+            name="tema"
+            id=""
+            #tema="ngModel"
+            [(ngModel)]="cubicTema.tema"
+          >
+            <option value=0>Seleccione</option>
+            <option *ngFor="let tema of listaTemas" [value]="tema.id">
+              {{ tema.title }}
+            </option>
+          </select>
+        </div>
+
+
+        <br><br>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

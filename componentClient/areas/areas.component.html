@@ -1,0 +1,39 @@
+<div class="px-3 mt-2 full-screen d-flex">
+  <div>
+    <button
+      type="button"
+      class="btn btn-lg float-start"
+      style="background: #f26522; color: white"
+      (click)="IrInicio()"
+    >
+      <i class="fas fa-long-arrow-alt-left"></i> Inicio
+    </button>
+  </div>  
+</div>
+
+  <div
+    class="container full-screen d-flex justify-content-center align-item-center"
+    style="color: #f26522"
+  >
+    <h1 class="text-center mt-2">Areas</h1>
+  </div>
+  
+  
+  <div class="container-md ">
+  <div class="row mt-1">
+    
+    <div class="container mt-2 border card2" style="background: #f26522; margin: 25px; border-radius: 15px;" *ngFor="let area of listaArea" (click)="tema(area.id)">
+      <img
+        class="rounded float-start"
+        src="https://deadv.uta.edu.ec/images/2017/areas/direccion.png"
+        alt=""
+      />
+      <div class="mt-4">
+        <h2 class="text-center" style="color:whitesmoke; text-transform: uppercase">{{ area.title }}</h2>
+      </div>
+      <div>
+        <p class="text-center">{{ area.desc }}</p>
+      </div>
+    </div>
+  </div>
+  </div>

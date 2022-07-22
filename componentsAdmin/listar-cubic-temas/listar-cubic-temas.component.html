@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="container mt-5">
+    <div class="row">
+      <div class="">
+        <div class="card">
+            <div class="card-body text-center">
+                <span><h2 class="text-center">LISTA DE CUBÍCULOS-TEMAS</h2></span>
+                <div class="d-flex flex-row-start">
+                  <button class="btn btn-primary" routerLink="/formCubicTemas"><i class="fas fa-plus fa-1x" style="color: white;"></i> Agregar Cubículo Tema</button>
+              </div>
+                <table *ngIf="listaCubicTemas.length >0" class="table table-striped mt-4">
+                    <thead style="background: #f26522; color:white;">
+                      <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Cubículo número</th>
+                        <th scope="col">Tema</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor = "let cubicTemas of listaCubicTemas">
+                        <td>{{cubicTemas?.id}}</td>
+                        <td>{{cubicTemas.cubiculo}}</td>
+                        <td>{{cubicTemas.tema}}</td>
+
+                        <td>
+                          <i [routerLink]="['/formCubicTemas', cubicTemas.id]" class="fas fa-edit text-primary"></i>
+                          <i (click)="deleteCubicTemas(cubicTemas?.id)" class="fas fa-trash-alt text-danger"></i>
+                        </td>
+                      </tr>
+                      
+                      
+                    </tbody>
+                  </table>
+                  <h5 *ngIf="listaCubicTemas.length==0">No hay cubículos temas para mostrar</h5>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+<app-footer></app-footer>
+
+
+

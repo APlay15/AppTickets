@@ -1,0 +1,45 @@
+<app-header></app-header>
+<div class="container mt-5">
+    <div class="row">
+      <div class="">
+        <div class="card">
+            <div class="card-body text-center">
+                <span><h2 class="text-center">LISTA DE PROPAGANDAS</h2></span>
+                <div class="d-flex flex-row-start">
+                  <button class="btn btn-primary" routerLink="/formPropaganda"><i class="fas fa-plus fa-1x" style="color: white;"></i> Agregar Propaganda</button>
+              </div>
+                <table *ngIf="listaProp.length >0" class="table table-striped mt-4">
+                    <thead style="background: #f26522; color:white;">
+                      <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Tiempo (s)</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor = "let prop of listaProp">
+                        <td>{{prop.id}}</td>
+                        <td>{{prop.tipo}}</td>
+                        <td><i  [ngClass]="prop.est=='activo' ? 'fas fa-check-circle':'fas fa-times-circle'" [ngStyle]="{'color':prop.est=='activo'? '#49D623':'#e51b29'}"></i></td>
+                        <td>{{prop.tiempo}}</td>
+                        <td>
+                          <i [routerLink]="['/formPropaganda', prop.id]" class="fas fa-edit text-primary"></i>
+                          <i (click)="deleteProp(prop?.id)" class="fas fa-trash-alt text-danger"></i>
+                        </td>
+                      </tr>
+                      
+                      
+                    </tbody>
+                  </table>
+                  <h5 *ngIf="listaProp.length==0">No hay propagandas para mostrar</h5>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+<app-footer></app-footer>
+
+
+

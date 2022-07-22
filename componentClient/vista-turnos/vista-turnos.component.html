@@ -1,0 +1,130 @@
+<body>
+    
+
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-7">
+         
+          <div class="card">
+            <div class="card-body">
+              <div>
+                <span class="info-box-text text-center"><h3>AHORA</h3></span>
+                <table class="table table-stripped">
+                  <thead style="background: yellowgreen;">
+                    <tr class="text-center">
+                      <td>    
+                          <h1>Ticket</h1>
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                          <h1>Cubículo</h1>
+                      </td>
+                  </tr>
+                  </thead>
+                  <tbody *ngFor ="let ticketa of ticketsA">
+                    <tr class="text-center">
+                      <td>
+                          <h2>{{ticketa.codUnic}}</h2>
+                      </td>
+                      <td>
+                          <h2><i class="fas fa-arrow-right"></i></h2>
+                      </td>
+                      <td>
+                          <h2>C4</h2>
+                      </td>
+                  </tr>
+                  
+                  </tbody>
+                </table>
+              </div>
+    
+              
+<ngb-carousel *ngIf="listaProp" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+  <ng-template ngbSlide *ngFor="let propa of listaProp">
+    <div class="picsum-img-wrapper" *ngIf="propa.tipo=='imagen'">
+      <img [src]="propa.url" class="rounded mx-auto d-block" alt="Random slide">
+    </div>
+    <div class="picsum-img-wrapper" *ngIf="propa.tipo=='video'">
+      <iframe width="400" height="400" [src]="propa.url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="carousel-caption">
+    </div>
+  </ng-template>
+</ngb-carousel>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          
+          <div>
+            <table class="table table-striped" >
+              <thead style="background: tomato;">
+                <tr class="text-center">
+                  <td>    
+                      <h1>Ticket</h1>
+                  </td>
+                  <td>
+                  </td>
+                  <td>
+                      <h1>Cubículo</h1>
+                  </td>
+              </tr>
+              </thead>
+              <tbody *ngFor ="let ticket of tickets">
+                <tr class="text-center">
+                  <td>
+                      <h2>{{ticket.codUnic}}</h2>
+                  </td>
+                  <td>
+                      <h2><i class="fas fa-arrow-right"></i></h2>
+                  </td>
+                  <td>
+                      <h2>C4</h2>
+                  </td>
+              </tr>
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-between p-2">
+              <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshCountries()">
+              </ngb-pagination>
+            
+              <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+                <option [ngValue]="2">2 items per page</option>
+                <option [ngValue]="4">4 items per page</option>
+                <option [ngValue]="6">6 items per page</option>
+              </select>
+            </div>
+
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body text-center">
+                <p>
+                    asdasdasdas
+                </p>
+            </div>
+        </div>
+    </div>
+  </div>
+
+</body>
+
+<hr>
+
+<div class="btn-group" role="group" aria-label="Carousel toggle controls">
+  <button type="button" (click)="showNavigationArrows = !showNavigationArrows" class="btn btn-outline-dark btn-sm">Toggle navigation arrows</button>
+  <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators" class="btn btn-outline-dark btn-sm">Toggle navigation indicators</button>
+</div>
+
+<iframe width="400" height="400" src="https://www.youtube.com/embed/tA8DZo9VP1w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+

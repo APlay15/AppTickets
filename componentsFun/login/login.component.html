@@ -1,0 +1,37 @@
+<section id="login" class="mb-5 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-8 col-sm-8 col-md-10 mx-auto">
+          <div class="card_login">
+            <div class="card">
+              <div class="card-body text-center">
+                <form #loginForm="ngForm" (ngSubmit)="validarLogin()">
+                  <h1 class="h3 mb-3 font-weight-normal">Iniciar Sesión</h1>
+                  <div class="form-group">
+                    <input type="email" placeholder="Correo" 
+                    class="form-control"
+                    name="correo"
+                    #correo = "ngModel"
+                    [(ngModel)] = "USER.correo"
+                    required>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" placeholder="Contraseña" 
+                    class="form-control"
+                    name="contrasena"
+                    #contrasena = "ngModel"
+                    [(ngModel)] = "USER.pass"
+                    required>
+                  </div>
+                  <button type="submit" class="btn btn-lg btn-primary btn-block" (click)="login()">Login</button>
+                 
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+

@@ -1,0 +1,70 @@
+<div class="col-lg-12 ">
+  <div class="card card-secondary">
+  <div class="card-title card-header text-center">
+      <label for="configForm">Configuraciones Base de Datos</label>
+    </div>
+
+    <form #configForm="ngForm" (ngSubmit)="addConfig(configForm)">
+      <div class="modal-body">
+<div class="row">
+          <div class="col-6">
+          <label for="cuposVir">Cupos virtuales</label>
+          <input
+            type="number"
+            name="cuposVir"
+            class="form-control"
+            #cuposVir="ngModel"
+            [(ngModel)]="CONFIG.cuposVir"
+            [ngClass]="{ 'is-invalid': cuposVir.errors && cuposVir.touched }"
+            required
+            minlength="2"
+          />
+          <div [hidden]="!cuposVir.errors?.required" class="invalid-feedback">
+            Cupos virtuales requerido
+          </div>
+        </div>
+
+        <div class="col-6">
+          <label for="cuposPre">Cupos presenciales:</label>
+          <input
+            type="number"
+            name="cuposPre"
+            class="form-control"
+            #cuposPre="ngModel"
+            [(ngModel)]="CONFIG.cuposPre"
+            [ngClass]="{ 'is-invalid': cuposPre.errors && cuposPre.touched }"
+            required
+          />
+          <div [hidden]="!cuposPre.errors?.required" class="invalid-feedback">
+            Cupos presenciales requeridos
+          </div>
+        </div>
+      </div>
+
+        <div class="form-group">
+          <div class="">
+            <label for="showTele">Mostrar telepronter:</label>
+            <div class="card-body">
+              <input
+                type="checkbox"
+                name="showTele"
+                data-bootstrap-switch
+                #showTele="ngModel"
+                [(ngModel)]="CONFIG.showTele"
+                [checked]="CONFIG.estb"
+                (change)="onChangeck(CONFIG.estb)"
+              />
+            </div>
+          </div>
+
+        </div>
+
+        <br><br>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
